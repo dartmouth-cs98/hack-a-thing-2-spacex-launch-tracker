@@ -21,11 +21,23 @@ function ordinal_suffix_of(i) {
     return i + "th";
 }
 
-export default function LaunchItem({launch: { flight_number, mission_name, launch_date_local, launch_success}}) {
+export default function LaunchItem({launch: { flight_number, mission_name, launch_date_local, launch_success,
+    links: { mission_patch }}}) {
     return (
         <div className="card card-body mb-3">
             <div className="row">
-                <div className="col-md-9">
+                    <img 
+                        src={mission_patch} 
+                        alt="No Mission Patch Available" 
+                        style={{ 
+                        paddingLeft: 20,
+                        paddingRight: 20,
+                        height: 60,
+                        width: 100, 
+                        display: 'block',
+                        }}
+                    />
+                <div className="col-md-7">
                     <h4>
                         Mission:{ " " }
                         <span className={classNames({
